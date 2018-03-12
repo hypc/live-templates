@@ -1,0 +1,172 @@
+<templateSet group="hypc-django">
+  <template name="hh:django:celery.py:3" value="from __future__ import absolute_import&#10;&#10;import os&#10;from celery import Celery, platforms&#10;from django.conf import settings&#10;&#10;platforms.C_FORCE_ROOT = True&#10;&#10;# set the default Django settings module for the 'celery' program.&#10;os.environ.setdefault('DJANGO_SETTINGS_MODULE', '$project_name$.settings')&#10;&#10;app = Celery('$celery_name$')&#10;app.config_from_object('django.conf:settings')&#10;app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)&#10;$end$" description="celery3" toReformat="false" toShortenFQNames="true">
+    <variable name="project_name" expression="" defaultValue="&quot;project_name&quot;" alwaysStopAt="true" />
+    <variable name="celery_name" expression="" defaultValue="project_name" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:clean" value="def clean_$field_name$(self):&#10;    field = self.cleaned_data['$field_name$']&#10;    $end$&#10;    return field&#10;" description="django: form: clean field" toReformat="false" toShortenFQNames="true">
+    <variable name="field_name" expression="" defaultValue="&quot;field_name&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python_Class" value="true" />
+    </context>
+  </template>
+  <template name="hh:django:response" value="HttpJsonResponse($data$)&#10;$end$" description="django: view: return response" toReformat="false" toShortenFQNames="true">
+    <variable name="data" expression="" defaultValue="&quot;data&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="hh:django:response:422" value="HttpJsonResponse(error_422($data$), status=422)&#10;$end$" description="django: view: return response&lt;422&gt;" toReformat="false" toShortenFQNames="true">
+    <variable name="data" expression="" defaultValue="&quot;data&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="hh:django:urlpatterns" value="urlpatterns = [&#10;    url(r'^$uri$$', $class$.as_view()),&#10;]" description="django: urlpatterns" toReformat="false" toShortenFQNames="true">
+    <variable name="uri" expression="" defaultValue="&quot;uri&quot;" alwaysStopAt="true" />
+    <variable name="class" expression="" defaultValue="&quot;View&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:testcase" value="class $class$(TestCase):&#10;&#10;    def setUp(self):&#10;        super($class$, self).setUp()&#10;&#10;    @classmethod&#10;    def setUpTestData(cls):&#10;        pass&#10;&#10;    def test(self):&#10;        pass$end$&#10;" description="django: testcase" toReformat="false" toShortenFQNames="true">
+    <variable name="class" expression="" defaultValue="&quot;Testcase&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:cache:file" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',&#10;    'LOCATION': '$cache_file$',&#10;}$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
+    <variable name="cache_file" expression="" defaultValue="&quot;/var/tmp/django_cache&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:cache:memcached" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',&#10;    'LOCATION': [&#10;        os.environ.get('$memcached1$', '127.0.0.1:11211'),&#10;        os.environ.get('$memcached2$', '127.0.0.1:11211'),&#10;    ],&#10;}$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
+    <variable name="memcached1" expression="" defaultValue="&quot;MEMCACHED1&quot;" alwaysStopAt="true" />
+    <variable name="memcached2" expression="" defaultValue="&quot;MEMCACHED2&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:cache:database" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.db.DatabaseCache',&#10;    'LOCATION': '$cache_table$',&#10;}$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
+    <variable name="cache_table" expression="" defaultValue="&quot;cache_table&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:cache:redis" value="'$config_name$': {&#10;    'BACKEND': 'django_redis.cache.RedisCache',&#10;    'LOCATION': [&#10;        os.environ.get('$redis1$', 'redis://127.0.0.1:6379/1'),&#10;        os.environ.get('$redis2$', 'redis://127.0.0.1:6379/2'),&#10;    ],&#10;}$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
+    <variable name="redis1" expression="" defaultValue="&quot;REDIS1&quot;" alwaysStopAt="true" />
+    <variable name="redis2" expression="" defaultValue="&quot;REDIS2&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:database:sqlite3" value="'$config_name$': {&#10;    'ENGINE': 'django.db.backends.sqlite3',&#10;    'NAME': '$db_name$',&#10;}$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
+    <variable name="db_name" expression="" defaultValue="&quot;sqlite3&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:database:postgresql" value="'$config_name$': {&#10;    'ENGINE': 'django.db.backends.postgresql',&#10;    'NAME': os.environ.get('$db_name$', '$project_name$'),&#10;    'USER': os.environ.get('$db_user$', 'postgres'),&#10;    'PASSWORD': os.environ.get('$db_password$', 'postgres'),&#10;    'HOST': os.environ.get('$db_host$', '127.0.0.1'),&#10;    'PORT': os.environ.get('$db_port$', '6379'),&#10;}$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
+    <variable name="db_name" expression="" defaultValue="&quot;DB_NAME&quot;" alwaysStopAt="true" />
+    <variable name="project_name" expression="" defaultValue="&quot;project_name&quot;" alwaysStopAt="true" />
+    <variable name="db_user" expression="" defaultValue="&quot;DB_USER&quot;" alwaysStopAt="true" />
+    <variable name="db_password" expression="" defaultValue="&quot;DB_PASSWORD&quot;" alwaysStopAt="true" />
+    <variable name="db_host" expression="" defaultValue="&quot;DB_HOST&quot;" alwaysStopAt="true" />
+    <variable name="db_port" expression="" defaultValue="&quot;DB_PORT&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:database:oracle" value="'$config_name$': {&#10;    'ENGINE': 'django.db.backends.oracle',&#10;    'NAME': os.environ.get('$db_name$', '$project_name$'),&#10;    'USER': os.environ.get('$db_user$', 'user_name'),&#10;    'PASSWORD': os.environ.get('$db_password$', 'password'),&#10;    'HOST': os.environ.get('$db_host$', '127.0.0.1'),&#10;    'PORT': os.environ.get('$db_port$', '1540'),&#10;}$end$" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
+    <variable name="db_name" expression="" defaultValue="&quot;DB_NAME&quot;" alwaysStopAt="true" />
+    <variable name="project_name" expression="" defaultValue="&quot;project_name&quot;" alwaysStopAt="true" />
+    <variable name="db_user" expression="" defaultValue="&quot;DB_USER&quot;" alwaysStopAt="true" />
+    <variable name="db_password" expression="" defaultValue="&quot;DB_PASSWORD&quot;" alwaysStopAt="true" />
+    <variable name="db_host" expression="" defaultValue="&quot;DB_HOST&quot;" alwaysStopAt="true" />
+    <variable name="db_port" expression="" defaultValue="&quot;DB_PORT&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:database:postgresql_psycopg2" value="'$config_name$': {&#10;    'ENGINE': 'django.db.backends.postgresql_psycopg2',&#10;    'NAME': os.environ.get('$db_name$', '$project_name$'),&#10;    'USER': os.environ.get('$db_user$', 'postgres'),&#10;    'PASSWORD': os.environ.get('$db_password$', 'postgres'),&#10;    'HOST': os.environ.get('$db_host$', '127.0.0.1'),&#10;    'PORT': os.environ.get('$db_port$', '6379'),&#10;}$end$" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
+    <variable name="db_name" expression="" defaultValue="&quot;DB_NAME&quot;" alwaysStopAt="true" />
+    <variable name="project_name" expression="" defaultValue="&quot;project_name&quot;" alwaysStopAt="true" />
+    <variable name="db_user" expression="" defaultValue="&quot;DB_USER&quot;" alwaysStopAt="true" />
+    <variable name="db_password" expression="" defaultValue="&quot;DB_PASSWORD&quot;" alwaysStopAt="true" />
+    <variable name="db_host" expression="" defaultValue="&quot;DB_HOST&quot;" alwaysStopAt="true" />
+    <variable name="db_port" expression="" defaultValue="&quot;DB_PORT&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:logging" value="LOGGING = {&#10;    'version': 1,&#10;    'disable_existing_loggers': False,&#10;    'formatters': {&#10;        'simple': {&#10;            'format': '[%(asctime)s] [%(process)d:%(thread)d] [%(levelname)s]'&#10;                      ' [%(name)s] [%(pathname)s:%(lineno)d] -- %(message)s',&#10;            'datefmt': '%Y-%m-%d %H:%M:%S %z',&#10;        },&#10;    },&#10;    'handlers': {&#10;        'console': {&#10;            'class': 'logging.StreamHandler',&#10;            'formatter': 'simple',&#10;        },&#10;    },&#10;    'loggers': {&#10;        'default': {&#10;            'handlers': ['console'],&#10;            'level': 'DEBUG' if DEBUG else 'WARNING',&#10;        },&#10;    },&#10;}&#10;$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:sentry" value="INSTALLED_APPS += (&#10;    'raven.contrib.django.raven_compat',&#10;)&#10;&#10;RAVEN_CONFIG = {&#10;    'dns': 'http://{}:{}@$sentry_host$/{}'.format(&#10;        os.environ.get('SENTRY_CLIENT_ID', '$sentry_id$'),&#10;        os.environ.get('SENTRY_CLIENT_SECRET', '$sentry_secret$'),&#10;        os.environ.get('SENTRY_PROJECT_ID', '$sentry_project_id$'),&#10;    ),&#10;}&#10;$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="sentry_host" expression="" defaultValue="&quot;sentry.uucin.com&quot;" alwaysStopAt="true" />
+    <variable name="sentry_id" expression="" defaultValue="&quot;sentry_id&quot;" alwaysStopAt="true" />
+    <variable name="sentry_secret" expression="" defaultValue="&quot;sentry_secret&quot;" alwaysStopAt="true" />
+    <variable name="sentry_project_id" expression="" defaultValue="&quot;sentry_project_id&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:session:cache" value="SESSION_ENGINE = 'django.contrib.sessions.backends.cache'&#10;SESSION_COOKIE_NAME = os.environ.get('SESSION_COOKIE_NAME', '$session_cookie_name$')&#10;SESSION_COOKIE_DOMAIN = os.environ.get('SESSION_COOKIE_DOMAIN', '$session_cookie_domain$')&#10;SESSION_COOKIE_AGE = $session_cookie_age$&#10;SESSION_EXPIRE_AT_BROWSER_CLOSE = True&#10;$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="session_cookie_name" expression="" defaultValue="&quot;session_id&quot;" alwaysStopAt="true" />
+    <variable name="session_cookie_domain" expression="" defaultValue="&quot;cookie_domain&quot;" alwaysStopAt="true" />
+    <variable name="session_cookie_age" expression="" defaultValue="&quot;60 * 60 * 24&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+  <template name="hh:django:celery" value="# BROKER_URL = 'amqp://guest:guest@localhost:5672//'&#10;# BROKER_URL = 'redis://localhost:6379/0'&#10;# BROKER_URL = 'mongodb://localhost:27017/database_name'&#10;BROKER_URL = [&#10;    'redis://localhost:6379/0',&#10;    'redis://localhost:6379/0',&#10;]&#10;# CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'&#10;# CELERY_RESULT_BACKEND = 'db+mysql://scott:tiger@localhost/foo'&#10;# CELERY_RESULT_BACKEND = 'db+postgresql://scott:tiger@localhost/mydatabase'&#10;# CELERY_RESULT_BACKEND = 'db+oracle://scott:tiger@127.0.0.1:1521/sidname'&#10;CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'&#10;CELERY_TASK_SERIALIZER = 'json'&#10;CELERY_RESULT_SERIALIZER = 'json'&#10;CELERY_TASK_RESULT_EXPIRES = 60 * 60 * 24&#10;CELERYD_MAX_TASKS_PER_CHILD = 300&#10;$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
+</templateSet>
