@@ -169,4 +169,11 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
+  <template name="hh:django:response:json" value="class HttpJsonResponse(HttpResponse):&#10;&#10;    def __init__(self, data=None, encoder=None, *args, **kwargs):&#10;        kwargs.setdefault('content_type', 'application/json')&#10;        kwargs.setdefault('status', 200)&#10;        data = json.dumps(data, cls=encoder) if data is not None else ''&#10;        super(HttpJsonResponse, self).__init__(content=data, *args, **kwargs)&#10;$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
 </templateSet>
