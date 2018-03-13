@@ -29,15 +29,16 @@
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="hh:django:urlpatterns" value="urlpatterns = [&#10;    url(r'^$uri$$', $class$.as_view()),&#10;]" description="django: urlpatterns" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:urlpatterns" value="urlpatterns = [&#10;    url(r'^$uri$$', $class$.as_view()),&#10;]$end$" description="django: urlpatterns" toReformat="false" toShortenFQNames="true">
     <variable name="uri" expression="" defaultValue="&quot;uri&quot;" alwaysStopAt="true" />
     <variable name="class" expression="" defaultValue="&quot;View&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="Python" value="true" />
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:testcase" value="class $class$(TestCase):&#10;&#10;    def setUp(self):&#10;        super($class$, self).setUp()&#10;&#10;    @classmethod&#10;    def setUpTestData(cls):&#10;        pass&#10;&#10;    def test(self):&#10;        pass$end$&#10;" description="django: testcase" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:testcase" value="class $class$(TestCase):&#10;&#10;    def setUp(self):&#10;        super($class$, self).setUp()&#10;&#10;    @classmethod&#10;    def setUpTestData(cls):&#10;        pass&#10;&#10;    def test(self):&#10;        pass&#10;$end$" description="django: testcase" toReformat="false" toShortenFQNames="true">
     <variable name="class" expression="" defaultValue="&quot;Testcase&quot;" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -54,10 +55,8 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:cache:memcached" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',&#10;    'LOCATION': [&#10;        os.environ.get('$memcached1$', '127.0.0.1:11211'),&#10;        os.environ.get('$memcached2$', '127.0.0.1:11211'),&#10;    ],&#10;}$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:cache:memcached" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',&#10;    'LOCATION': [&#10;        '127.0.0.1:11211',&#10;        '127.0.0.1:11211',&#10;    ],&#10;}$end$" toReformat="false" toShortenFQNames="true">
     <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
-    <variable name="memcached1" expression="" defaultValue="&quot;MEMCACHED1&quot;" alwaysStopAt="true" />
-    <variable name="memcached2" expression="" defaultValue="&quot;MEMCACHED2&quot;" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="Python" value="true" />
@@ -73,10 +72,8 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:cache:redis" value="'$config_name$': {&#10;    'BACKEND': 'django_redis.cache.RedisCache',&#10;    'LOCATION': [&#10;        os.environ.get('$redis1$', 'redis://127.0.0.1:6379/1'),&#10;        os.environ.get('$redis2$', 'redis://127.0.0.1:6379/2'),&#10;    ],&#10;}$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:cache:redis" value="'$config_name$': {&#10;    'BACKEND': 'django_redis.cache.RedisCache',&#10;    'LOCATION': 'redis://127.0.0.1:6379/1',&#10;}$end$" toReformat="false" toShortenFQNames="true">
     <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
-    <variable name="redis1" expression="" defaultValue="&quot;REDIS1&quot;" alwaysStopAt="true" />
-    <variable name="redis2" expression="" defaultValue="&quot;REDIS2&quot;" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="Python" value="true" />
