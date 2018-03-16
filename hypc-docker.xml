@@ -1,0 +1,45 @@
+<templateSet group="hypc-docker">
+  <template name="hh:docker:nodejs" value="FROM node:$node_version$&#10;&#10;WORKDIR /app&#10; &#10;COPY ./package.json /app/package.json&#10;COPY ./package-lock.json /app/package-lock.json&#10;COPY .docker/nginx.conf /etc/nginx/nginx.conf&#10;&#10;RUN echo &quot;http://mirrors.aliyun.com/alpine/v$(cat /etc/alpine-release | cut -d '.' -f1-2)/main&quot; &gt; /etc/apk/repositories \&#10;    &amp;&amp; apk update &amp;&amp; apk add --no-cache nginx \&#10;    &amp;&amp; echo &quot;registry=https://registry.npm.taobao.org&quot; &gt; ~/.npmrc \&#10;    &amp;&amp; echo &quot;sass_binary_site=https://npm.taobao.org/mirrors/node-sass/&quot; &gt;&gt; ~/.npmrc \&#10;    &amp;&amp; npm install&#10;&#10;ADD . /app&#10;RUN npm run build:prod&#10;&#10;EXPOSE $port$&#10;CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]&#10;$end$" description="deploy nodejs project" toReformat="false" toShortenFQNames="true">
+    <variable name="node_version" expression="" defaultValue="&quot;8.10-alpine&quot;" alwaysStopAt="true" />
+    <variable name="port" expression="" defaultValue="&quot;80&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="CSS" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="Django" value="false" />
+      <option name="HAML" value="false" />
+      <option name="HTML" value="false" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="JSON" value="false" />
+      <option name="OTHER" value="true" />
+      <option name="PUPPET_FILE" value="false" />
+      <option name="Python" value="false" />
+      <option name="SQL" value="false" />
+      <option name="TypeScript" value="false" />
+      <option name="XML" value="false" />
+    </context>
+  </template>
+  <template name="hh:docker:python" value="FROM python:$python_version$&#10;&#10;WORKDIR /app&#10;COPY requirements.txt /app/requirements.txt&#10;&#10;RUN pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com&#10;&#10;ADD . /app&#10;&#10;EXPOSE $port$&#10;CMD [&quot;gunicorn&quot;, &quot;-c&quot;, &quot;gunicorn_config.py&quot;, &quot;$project_name$.wsgi:application&quot;]&#10;$end$" description="deploy python project" toReformat="false" toShortenFQNames="true">
+    <variable name="python_version" expression="" defaultValue="&quot;3.5&quot;" alwaysStopAt="true" />
+    <variable name="port" expression="" defaultValue="&quot;8000&quot;" alwaysStopAt="true" />
+    <variable name="project_name" expression="" defaultValue="&quot;project_name&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="CSS" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="Django" value="false" />
+      <option name="HAML" value="false" />
+      <option name="HTML" value="false" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="JSON" value="false" />
+      <option name="OTHER" value="true" />
+      <option name="PUPPET_FILE" value="false" />
+      <option name="Python" value="false" />
+      <option name="SQL" value="false" />
+      <option name="TypeScript" value="false" />
+      <option name="XML" value="false" />
+    </context>
+  </template>
+</templateSet>

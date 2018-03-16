@@ -1,5 +1,5 @@
 <templateSet group="hypc-gitbook">
-  <template name="hh:gitbook:book.json" value="{&#10;    &quot;title&quot;: &quot;$title$&quot;,&#10;    &quot;author&quot;: &quot;$author$&quot;,&#10;    &quot;description&quot;: &quot;$description$&quot;,&#10;    &quot;repository&quot;: {&#10;        &quot;type&quot;: &quot;git&quot;,&#10;        &quot;url&quot;: &quot;$url$&quot;&#10;    },&#10;    &quot;plugins&quot;: [&#10;        &quot;theme-opendocs&quot;, &quot;advanced-emoji&quot;, &quot;bg-nest&quot;,&#10;        &quot;ace&quot;, &quot;codeblock-label&quot;,&#10;        &quot;simpletabs&quot;,&#10;        &quot;include&quot;,&#10;        &quot;katex&quot;,&#10;        &quot;-highlight&quot;, &quot;prism&quot;,&#10;        &quot;-lunr&quot;, &quot;-search&quot;, &quot;search-pro&quot;,&#10;        &quot;-sharing&quot;,&#10;        &quot;-fontsettings&quot;&#10;    ],&#10;    &quot;gitbook&quot;: &quot;&gt;=3.0.0&quot;,&#10;    &quot;pluginsConfig&quot;: {}&#10;}$end$" description="gitbook: book.json" toReformat="false" toShortenFQNames="true">
+  <template name="hh:gitbook:book.json" value="{&#10;    &quot;title&quot;: &quot;$title$&quot;,&#10;    &quot;author&quot;: &quot;$author$&quot;,&#10;    &quot;description&quot;: &quot;$description$&quot;,&#10;    &quot;repository&quot;: {&#10;        &quot;type&quot;: &quot;git&quot;,&#10;        &quot;url&quot;: &quot;$url$&quot;&#10;    },&#10;    &quot;plugins&quot;: [&#10;        &quot;theme-opendocs&quot;, &quot;advanced-emoji&quot;, &quot;bg-nest&quot;,&#10;        &quot;ace&quot;, &quot;codeblock-label&quot;,&#10;        &quot;simpletabs&quot;,&#10;        &quot;include&quot;,&#10;        &quot;katex&quot;,&#10;        &quot;-highlight&quot;, &quot;prism&quot;,&#10;        &quot;-lunr&quot;, &quot;-search&quot;, &quot;search-pro&quot;,&#10;        &quot;-sharing&quot;,&#10;        &quot;-fontsettings&quot;&#10;    ],&#10;    &quot;gitbook&quot;: &quot;&gt;=3.0.0&quot;,&#10;    &quot;pluginsConfig&quot;: {}&#10;}$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="title" expression="" defaultValue="&quot;title&quot;" alwaysStopAt="true" />
     <variable name="author" expression="" defaultValue="&quot;author&quot;" alwaysStopAt="true" />
     <variable name="description" expression="" defaultValue="" alwaysStopAt="true" />
@@ -7,6 +7,29 @@
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JSON" value="true" />
+    </context>
+  </template>
+  <template name="hh:gitbook:simpletabs" value="{% tabs $first$=&quot;$first_tab_name$&quot;, $second$=&quot;$second_tab_name$&quot; %}&#10;&#10;{% content &quot;$first$&quot; %}&#10;Content for $first$ tab ...&#10;&#10;{% content &quot;$second$&quot; %}&#10;Content for $second$ tab ...&#10;&#10;{% endtabs %}&#10;$end$" toReformat="false" toShortenFQNames="true">
+    <variable name="first" expression="" defaultValue="&quot;first&quot;" alwaysStopAt="true" />
+    <variable name="first_tab_name" expression="" defaultValue="&quot;First Tab&quot;" alwaysStopAt="true" />
+    <variable name="second" expression="" defaultValue="&quot;second&quot;" alwaysStopAt="true" />
+    <variable name="second_tab_name" expression="" defaultValue="&quot;Second Tab&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="CSS" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="Django" value="false" />
+      <option name="HAML" value="false" />
+      <option name="HTML" value="false" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="JSON" value="false" />
+      <option name="OTHER" value="true" />
+      <option name="PUPPET_FILE" value="false" />
+      <option name="Python" value="false" />
+      <option name="SQL" value="false" />
+      <option name="TypeScript" value="false" />
+      <option name="XML" value="false" />
     </context>
   </template>
 </templateSet>

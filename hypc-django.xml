@@ -46,7 +46,7 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:cache:file" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',&#10;    'LOCATION': '$cache_file$',&#10;}$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:cache:file" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',&#10;    'LOCATION': '$cache_file$',&#10;}$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
     <variable name="cache_file" expression="" defaultValue="&quot;/var/tmp/django_cache&quot;" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
@@ -55,7 +55,7 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:cache:memcached" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',&#10;    'LOCATION': [&#10;        '127.0.0.1:11211',&#10;        '127.0.0.1:11211',&#10;    ],&#10;}$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:cache:memcached" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',&#10;    'LOCATION': [&#10;        '127.0.0.1:11211',&#10;        '127.0.0.1:11211',&#10;    ],&#10;}$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -63,7 +63,7 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:cache:database" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.db.DatabaseCache',&#10;    'LOCATION': '$cache_table$',&#10;}$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:cache:database" value="'$config_name$': {&#10;    'BACKEND': 'django.core.cache.backends.db.DatabaseCache',&#10;    'LOCATION': '$cache_table$',&#10;}$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
     <variable name="cache_table" expression="" defaultValue="&quot;cache_table&quot;" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
@@ -72,7 +72,7 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:cache:redis" value="'$config_name$': {&#10;    'BACKEND': 'django_redis.cache.RedisCache',&#10;    'LOCATION': 'redis://127.0.0.1:6379/1',&#10;}$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:cache:redis" value="'$config_name$': {&#10;    'BACKEND': 'django_redis.cache.RedisCache',&#10;    # redis://[:password]@localhost:6379/0&#10;    # rediss://[:password]@localhost:6379/0&#10;    # unix://[:password]@/path/to/socket.sock?db=0&#10;    'LOCATION': 'redis://127.0.0.1:6379/1',&#10;}$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -80,7 +80,7 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:database:sqlite3" value="'$config_name$': {&#10;    'ENGINE': 'django.db.backends.sqlite3',&#10;    'NAME': '$db_name$',&#10;}$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:database:sqlite3" value="'$config_name$': {&#10;    'ENGINE': 'django.db.backends.sqlite3',&#10;    'NAME': '$db_name$',&#10;}$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
     <variable name="db_name" expression="" defaultValue="&quot;sqlite3&quot;" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
@@ -89,7 +89,7 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:database:postgresql" value="'$config_name$': {&#10;    'ENGINE': 'django.db.backends.postgresql',&#10;    'NAME': os.environ.get('$db_name$', '$project_name$'),&#10;    'USER': os.environ.get('$db_user$', 'postgres'),&#10;    'PASSWORD': os.environ.get('$db_password$', 'postgres'),&#10;    'HOST': os.environ.get('$db_host$', '127.0.0.1'),&#10;    'PORT': os.environ.get('$db_port$', '6379'),&#10;}$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:database:postgresql" value="'$config_name$': {&#10;    'ENGINE': 'django.db.backends.postgresql',&#10;    'NAME': os.environ.get('$db_name$', '$project_name$'),&#10;    'USER': os.environ.get('$db_user$', 'postgres'),&#10;    'PASSWORD': os.environ.get('$db_password$', 'postgres'),&#10;    'HOST': os.environ.get('$db_host$', '127.0.0.1'),&#10;    'PORT': os.environ.get('$db_port$', '6379'),&#10;}$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="config_name" expression="" defaultValue="&quot;default&quot;" alwaysStopAt="true" />
     <variable name="db_name" expression="" defaultValue="&quot;DB_NAME&quot;" alwaysStopAt="true" />
     <variable name="project_name" expression="" defaultValue="&quot;project_name&quot;" alwaysStopAt="true" />
@@ -131,14 +131,14 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:logging" value="LOGGING = {&#10;    'version': 1,&#10;    'disable_existing_loggers': False,&#10;    'formatters': {&#10;        'simple': {&#10;            'format': '[%(asctime)s] [%(process)d:%(thread)d] [%(levelname)s]'&#10;                      ' [%(name)s] [%(pathname)s:%(lineno)d] -- %(message)s',&#10;            'datefmt': '%Y-%m-%d %H:%M:%S %z',&#10;        },&#10;    },&#10;    'handlers': {&#10;        'console': {&#10;            'class': 'logging.StreamHandler',&#10;            'formatter': 'simple',&#10;        },&#10;    },&#10;    'loggers': {&#10;        'default': {&#10;            'handlers': ['console'],&#10;            'level': 'DEBUG' if DEBUG else 'WARNING',&#10;        },&#10;    },&#10;}&#10;$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:logging" value="LOGGING = {&#10;    'version': 1,&#10;    'disable_existing_loggers': False,&#10;    'formatters': {&#10;        'simple': {&#10;            'format': '[%(asctime)s] [%(process)d:%(thread)d] [%(levelname)s]'&#10;                      ' [%(name)s] [%(pathname)s:%(lineno)d] -- %(message)s',&#10;            'datefmt': '%Y-%m-%d %H:%M:%S %z',&#10;        },&#10;    },&#10;    'handlers': {&#10;        'console': {&#10;            'class': 'logging.StreamHandler',&#10;            'formatter': 'simple',&#10;        },&#10;    },&#10;    'loggers': {&#10;        'default': {&#10;            'handlers': ['console'],&#10;            'level': 'DEBUG' if DEBUG else 'WARNING',&#10;        },&#10;    },&#10;}&#10;$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="Python" value="true" />
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:sentry" value="INSTALLED_APPS += (&#10;    'raven.contrib.django.raven_compat',&#10;)&#10;&#10;RAVEN_CONFIG = {&#10;    'dns': 'http://{}:{}@$sentry_host$/{}'.format(&#10;        os.environ.get('SENTRY_CLIENT_ID', '$sentry_id$'),&#10;        os.environ.get('SENTRY_CLIENT_SECRET', '$sentry_secret$'),&#10;        os.environ.get('SENTRY_PROJECT_ID', '$sentry_project_id$'),&#10;    ),&#10;}&#10;$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:sentry" value="INSTALLED_APPS += (&#10;    'raven.contrib.django.raven_compat',&#10;)&#10;&#10;RAVEN_CONFIG = {&#10;    'dsn': 'http://{}:{}@$sentry_host$/{}'.format(&#10;        os.environ.get('SENTRY_CLIENT_ID', '$sentry_id$'),&#10;        os.environ.get('SENTRY_CLIENT_SECRET', '$sentry_secret$'),&#10;        os.environ.get('SENTRY_PROJECT_ID', '$sentry_project_id$'),&#10;    ),&#10;}&#10;$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="sentry_host" expression="" defaultValue="&quot;sentry.uucin.com&quot;" alwaysStopAt="true" />
     <variable name="sentry_id" expression="" defaultValue="&quot;sentry_id&quot;" alwaysStopAt="true" />
     <variable name="sentry_secret" expression="" defaultValue="&quot;sentry_secret&quot;" alwaysStopAt="true" />
@@ -149,7 +149,7 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:session:cache" value="SESSION_ENGINE = 'django.contrib.sessions.backends.cache'&#10;SESSION_COOKIE_NAME = os.environ.get('SESSION_COOKIE_NAME', '$session_cookie_name$')&#10;SESSION_COOKIE_DOMAIN = os.environ.get('SESSION_COOKIE_DOMAIN', '$session_cookie_domain$')&#10;SESSION_COOKIE_AGE = $session_cookie_age$&#10;SESSION_EXPIRE_AT_BROWSER_CLOSE = True&#10;$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:session:cache" value="SESSION_ENGINE = 'django.contrib.sessions.backends.cache'&#10;SESSION_COOKIE_NAME = os.environ.get('SESSION_COOKIE_NAME', '$session_cookie_name$')&#10;SESSION_COOKIE_DOMAIN = os.environ.get('SESSION_COOKIE_DOMAIN', '$session_cookie_domain$')&#10;SESSION_COOKIE_AGE = $session_cookie_age$&#10;SESSION_EXPIRE_AT_BROWSER_CLOSE = True&#10;$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="session_cookie_name" expression="" defaultValue="&quot;session_id&quot;" alwaysStopAt="true" />
     <variable name="session_cookie_domain" expression="" defaultValue="&quot;cookie_domain&quot;" alwaysStopAt="true" />
     <variable name="session_cookie_age" expression="" defaultValue="&quot;60 * 60 * 24&quot;" alwaysStopAt="true" />
@@ -159,14 +159,14 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:celery" value="# BROKER_URL = 'amqp://guest:guest@localhost:5672//'&#10;# BROKER_URL = 'redis://localhost:6379/0'&#10;# BROKER_URL = 'mongodb://localhost:27017/database_name'&#10;BROKER_URL = [&#10;    'redis://localhost:6379/0',&#10;    'redis://localhost:6379/0',&#10;]&#10;# CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'&#10;# CELERY_RESULT_BACKEND = 'db+mysql://scott:tiger@localhost/foo'&#10;# CELERY_RESULT_BACKEND = 'db+postgresql://scott:tiger@localhost/mydatabase'&#10;# CELERY_RESULT_BACKEND = 'db+oracle://scott:tiger@127.0.0.1:1521/sidname'&#10;CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'&#10;CELERY_TASK_SERIALIZER = 'json'&#10;CELERY_RESULT_SERIALIZER = 'json'&#10;CELERY_TASK_RESULT_EXPIRES = 60 * 60 * 24&#10;CELERYD_MAX_TASKS_PER_CHILD = 300&#10;$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:celery" value="# BROKER_URL = 'amqp://guest:guest@localhost:5672//'&#10;# BROKER_URL = 'redis://localhost:6379/0'&#10;# BROKER_URL = 'mongodb://localhost:27017/database_name'&#10;BROKER_URL = [&#10;    'redis://localhost:6379/0',&#10;    'redis://localhost:6379/0',&#10;]&#10;# CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'&#10;# CELERY_RESULT_BACKEND = 'db+mysql://scott:tiger@localhost/foo'&#10;# CELERY_RESULT_BACKEND = 'db+postgresql://scott:tiger@localhost/mydatabase'&#10;# CELERY_RESULT_BACKEND = 'db+oracle://scott:tiger@127.0.0.1:1521/sidname'&#10;CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'&#10;CELERY_TASK_SERIALIZER = 'json'&#10;CELERY_RESULT_SERIALIZER = 'json'&#10;CELERY_TASK_RESULT_EXPIRES = 60 * 60 * 24&#10;CELERYD_MAX_TASKS_PER_CHILD = 300&#10;$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="Python" value="true" />
       <option name="Python_Class" value="false" />
     </context>
   </template>
-  <template name="hh:django:response:json" value="class HttpJsonResponse(HttpResponse):&#10;&#10;    def __init__(self, data=None, encoder=None, *args, **kwargs):&#10;        kwargs.setdefault('content_type', 'application/json')&#10;        kwargs.setdefault('status', 200)&#10;        data = json.dumps(data, cls=encoder) if data is not None else ''&#10;        super(HttpJsonResponse, self).__init__(content=data, *args, **kwargs)&#10;$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:django:response:json" value="class HttpJsonResponse(HttpResponse):&#10;&#10;    def __init__(self, data=None, encoder=None, *args, **kwargs):&#10;        kwargs.setdefault('content_type', 'application/json')&#10;        kwargs.setdefault('status', 200)&#10;        data = json.dumps(data, cls=encoder) if data is not None else ''&#10;        super(HttpJsonResponse, self).__init__(content=data, *args, **kwargs)&#10;$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="Python" value="true" />
