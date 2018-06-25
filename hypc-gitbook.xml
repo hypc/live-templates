@@ -9,7 +9,7 @@
       <option name="JSON" value="true" />
     </context>
   </template>
-  <template name="hh:gitbook:simpletabs" value="{% tabs $first$=&quot;$first_tab_name$&quot;, $second$=&quot;$second_tab_name$&quot; %}&#10;&#10;{% content &quot;$first$&quot; %}&#10;Content for $first$ tab ...&#10;&#10;{% content &quot;$second$&quot; %}&#10;Content for $second$ tab ...&#10;&#10;{% endtabs %}&#10;$end$" toReformat="false" toShortenFQNames="true">
+  <template name="hh:gitbook:simpletabs" value="{% tabs $first$=&quot;$first_tab_name$&quot;, $second$=&quot;$second_tab_name$&quot; %}&#10;&#10;{% content &quot;$first$&quot; %}&#10;Content for $first$ tab ...&#10;&#10;{% content &quot;$second$&quot; %}&#10;Content for $second$ tab ...&#10;&#10;{% endtabs %}&#10;$end$" description="" toReformat="false" toShortenFQNames="true">
     <variable name="first" expression="" defaultValue="&quot;first&quot;" alwaysStopAt="true" />
     <variable name="first_tab_name" expression="" defaultValue="&quot;First Tab&quot;" alwaysStopAt="true" />
     <variable name="second" expression="" defaultValue="&quot;second&quot;" alwaysStopAt="true" />

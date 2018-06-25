@@ -29,4 +29,12 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
+  <template name="hh:python:encoding" value="# encoding=$charset$&#10;$end$" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="charset" expression="" defaultValue="&quot;utf-8&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
 </templateSet>

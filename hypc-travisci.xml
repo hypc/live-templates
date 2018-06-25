@@ -1,0 +1,21 @@
+<templateSet group="hypc-travisci">
+  <template name="hh:travis:gitbook" value="language: node_js&#10;node_js: 8&#10;install:&#10;  - npm install -g gitbook-cli&#10;  - gitbook install&#10;script:&#10;  - gitbook build&#10;deploy:&#10;  provider: pages&#10;  skip-cleanup: true&#10;  github-token: $GITHUB_TOKEN&#10;  keep-history: true&#10;  local-dir: _book&#10;  on:&#10;    tags: true&#10;" description="使用时需要设置环境变量`GITHUB_TOKEN`" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Bash" value="false" />
+      <option name="CSS" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="Django" value="false" />
+      <option name="HAML" value="false" />
+      <option name="HTML" value="false" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="JSON" value="false" />
+      <option name="OTHER" value="true" />
+      <option name="PUPPET_FILE" value="false" />
+      <option name="Python" value="false" />
+      <option name="SQL" value="false" />
+      <option name="TypeScript" value="false" />
+      <option name="XML" value="false" />
+    </context>
+  </template>
+</templateSet>
