@@ -181,4 +181,12 @@
       <option name="Python_Class" value="false" />
     </context>
   </template>
+  <template name="hh:django:celery.py:4" value="from __future__ import absolute_import, unicode_literals&#10;&#10;import os&#10;from celery import Celery, platforms&#10;&#10;platforms.C_FORCE_ROOT = True&#10;&#10;os.environ.setdefault('DJANGO_SETTINGS_MODULE', '$project_name$.settings')&#10;&#10;app = Celery('$project_name$')&#10;app.config_from_object('django.conf:settings', namespace='CELERY')&#10;app.autodiscover_tasks()&#10;$end$" description="celery:4" toReformat="false" toShortenFQNames="true">
+    <variable name="project_name" expression="" defaultValue="&quot;project_name&quot;" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+      <option name="Python_Class" value="false" />
+    </context>
+  </template>
 </templateSet>
